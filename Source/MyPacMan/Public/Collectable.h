@@ -32,4 +32,8 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Collect)
 	bool bIsSuperCollectable;
+	UPROPERTY(EditAnywhere, Category = Collect)
+	float fLocHeight;
+	UPROPERTY(EditAnywhere, Category = Collect)
+	float fSize;
 };

@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Collectable.h"
+#include "public/Collectable.h"
 #include "UObject/ConstructorHelpers.h"
 // Sets default values
 ACollectable::ACollectable()
@@ -15,11 +15,12 @@ ACollectable::ACollectable()
 
 	CollectableMesh->AttachTo(BaseCollisionMesh);
 	
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>Sphere(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>Sphere(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 	if (Sphere.Succeeded()) {
 		CollectableMesh->SetStaticMesh(Sphere.Object);
 	}
-	CollectableMesh->SetWorldScale3D(FVector(0.3, 0.3, 0.3));
+	CollectableMesh->SetWorldScale3D(FVector(fSize, fSize, fSize));
+	CollectableMesh->SetRelativeLocation(FVector(0.0f, 0.0f, -fLocHeight));
 	BaseCollisionMesh->SetSphereRadius(16);
 }
 
